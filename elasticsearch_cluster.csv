@@ -1,0 +1,7 @@
+ResourceGroupName,Location,StorageName,StorageType,VMName,VMSize,SubnetName,VNetName,UserName,VNetResourceGroup,imagepath,AvailabilitySet,role,app,datadisk,appid,environment,owner,platform
+rn-test-rg,east us 2,rneast2sa01,Premium_LRS,rntestvm01,Standard_DS1_v2,app,muse2-np02-n001-vn01,cortana,MUSE2-NP02-N001,linux,rntest,testing,none,no,,prod,russell_norton@symantec.com,testing
+rn-test-rg,east us 2,rneast2sa02,Premium_LRS,rntestvm02,Standard_DS1_v2,app,muse2-np02-n001-vn01,cortana,MUSE2-NP02-N001,linux,rntest,testing,none,no,,prod,russell_norton@symantec.com,testing
+rn-test-rg,east us 2,rneast2sa03,Premium_LRS,rntestvm03,Standard_DS1_v2,app,muse2-np02-n001-vn01,cortana,MUSE2-NP02-N001,linux,rntest,testing,none,no,,prod,russell_norton@symantec.com,testing
+rn-test-rg,east us 2,rneast2sa04,Premium_LRS,rntestvm04,Standard_DS1_v2,support,muse2-np02-n001-vn01,cortana,MUSE2-NP02-N001,linux,rntest,testing,none,no,,prod,russell_norton@symantec.com,testing
+rn-test-rg,east us 2,rneast2sa05,Premium_LRS,rntestvm05,Standard_DS1_v2,support,muse2-np02-n001-vn01,cortana,MUSE2-NP02-N001,linux,rntest,testing,none,no,,prod,russell_norton@symantec.com,testing
+rn-test-rg,east us 2,rneast2sa06,Premium_LRS,rntestvm06,Standard_DS1_v2,support,muse2-np02-n001-vn01,cortana,MUSE2-NP02-N001,linux,rntest,testing,none,no,,prod,russell_norton@symantec.com,testing

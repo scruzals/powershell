@@ -1,0 +1,34 @@
+<config>
+	<subscription>
+		<name>"MUSE1-NP01-ENG-CORE"</name>
+		<id></id>
+	</subscription>
+	<resourcegroup>
+		<name>MUSE1-NP01-N001</name>
+		<location>eastus</location>
+	</resourcegroup>
+	<network>
+		<vnet>
+			<name>muse1-np01-n001-vn01</name>
+			<addressspace>10.82.96.0/21</addressspace>
+		</vnet>
+		<subnets>
+			<subnet>
+				<name>test</name>
+				<addressspace>10.82.97.0/24</addressspace>
+			</subnet>
+			<subnet>
+				<name>web</name>
+				<addressspace>10.82.98.0/23</addressspace>
+			</subnet>
+			<subnet>
+				<name>App</name>
+				<addressspace>10.82.100.0/23</addressspace>
+			</subnet>
+			<subnet>
+				<name>Support</name>
+				<addressspace>10.82.102.0/23</addressspace>
+			</subnet>
+		</subnets>
+	</network>
+</config>
