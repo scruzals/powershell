@@ -1,15 +1,15 @@
 <config>
 	<subscription>
-		<name>"MUSE1-NP01-ENG-CORE"</name>
+		<name>"CORE-PROD"</name>
 		<id></id>
 	</subscription>
 	<resourcegroup>
-		<name>MUSE1-NP01-N001</name>
-		<location>eastus</location>
+		<name>core-prod</name>
+		<location>westus</location>
 	</resourcegroup>
 	<network>
 		<vnet>
-			<name>muse1-np01-n001-vn01</name>
+			<name>core-prod<</name>
 			<addressspace>10.82.96.0/21</addressspace>
 		</vnet>
 		<subnets>
