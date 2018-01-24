@@ -1,7 +1,7 @@
 <config>
 	<subscription>
 		<name>"CORE-PROD"</name>
-		<id></id>
+		<id>bcbe6459-0d48-4a25-a64f-0056405c1268</id>
 	</subscription>
 	<resourcegroup>
 		<name>core-prod</name>
@@ -9,12 +9,12 @@
 	</resourcegroup>
 	<network>
 		<vnet>
-			<name>core-prod<</name>
+			<name>core-prod</name>
 			<addressspace>10.82.96.0/21</addressspace>
 		</vnet>
 		<subnets>
 			<subnet>
-				<name>test</name>
+				<name>GatewaySubnet</name>
 				<addressspace>10.82.97.0/24</addressspace>
 			</subnet>
 			<subnet>

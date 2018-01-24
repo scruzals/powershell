@@ -43,7 +43,7 @@ function update-vnet
                               try
                               {
                               $subnet
-                              Add-AzureRmVirtualNetworkSubnetConfig -AddressPrefix $subnet.addressspace -Name $subnet.name -VirtualNetwork $vnet -RouteTableId /subscriptions/3534678c-6ea4-44c2-bdc7-f2cde02cbd23/resourceGroups/MEUW1-NP01-N001/providers/Microsoft.Network/routeTables/ROUTE-to-ASA-Inside #-NetworkSecurityGroup $defaultnsg
+                              Add-AzureRmVirtualNetworkSubnetConfig -AddressPrefix $subnet.addressspace -Name $subnet.name -VirtualNetwork $vnet -NetworkSecurityGroup $defaultnsg
                               Write-Host adding $subnet.name -ForegroundColor Cyan
                               }
                               catch
@@ -73,24 +73,28 @@ $ErrorActionPreference="stop"
 [xml] $config = Get-Content $configfile
 $subid=$config.config.subscription.id
 $subnets = $config.config.network.subnets.subnet 
-#$ErrorActionPreference="stop"
 $networktags=@{Role="Core service";Owner="me"; environment="Prod"}
 $nsgTags = @{Role="Core service NSG";Owner="me"; Environment="Prod"}
 
 write-host Switching to $config.config.subscription.name -ForegroundColor Green
 Select-AzureRmSubscription -SubscriptionId $subid 
-
-         write-host Getting vnet -ForegroundColor Cyan
-                $vnet = get-AzureRmVirtualNetwork -Name $config.config.network.vnet.name -ResourceGroupName $config.config.resourcegroup.name  
-                if($vnet)
-                    {
-                        write-host vnet found -ForegroundColor Green
-                        update-vnet
+if($forcecretevnet.IsPresent)
+{
+    write-host Creating vnet -ForegroundColor Cyan
+    New-AzureRmResourceGroup -Name $config.config.resourcegroup.name  -Location $config.config.resourcegroup.location
+    New-AzureRmVirtualNetwork -Name $config.config.network.vnet.name -ResourceGroupName $config.config.resourcegroup.name  -Location $config.config.resourcegroup.location -Tag $networktags -AddressPrefix $config.config.network.vnet.addressspace
+}
+write-host Getting vnet -ForegroundColor Cyan
+$vnet = get-AzureRmVirtualNetwork -Name $config.config.network.vnet.name -ResourceGroupName $config.config.resourcegroup.name  
+if($vnet)
+  {
+      write-host vnet found -ForegroundColor Green
+      update-vnet
                     
-                    }
+  }
                 
-         else
-                    {
-                        write-host vnet not found -ForegroundColor Red
-                        break              
-                    }
+else
+  {
+      write-host vnet not found -ForegroundColor Red
+      break              
+  }
